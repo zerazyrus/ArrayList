@@ -1,30 +1,33 @@
+#ifndef MangMotChieu_H
+#define MangMotChieu_H
+
 #include<math.h>
 #include<string>
 #include<iostream>
-#include<algorithm>
-#include<functional> // std:greater
-#include<vector>
-#pragma once
-#define MAX 100
 
 using namespace std;
 
 class MangMotChieu {
+	friend istream & operator >>(istream& is, MangMotChieu& a);
+	friend ostream & operator <<(ostream& os, const MangMotChieu& a);
 private:
-	int n;
-	int A[100];
-	int operator [] (int i) const { return A[i]; }
-	int& operator [] (int i) { return A[i]; }
+	int * ptr;
+	int size;
 public:
-	MangMotChieu();
+	MangMotChieu(int = 10);
+	MangMotChieu(const MangMotChieu &);
 	~MangMotChieu();
-	void set(int m);
-	MangMotChieu& operator= (MangMotChieu &a);
-	friend istream& operator >>(istream &is, MangMotChieu &a);
-	friend ostream& operator <<(ostream &os, MangMotChieu a);
-	void Add();
+
+	int getSize() const;
+	const int operator[](int);
+	MangMotChieu& operator= (MangMotChieu& a);
+	void Add(int);
+
 	int IndexOf(int);
-	void Union();
-	void Concat();
-	void Contains();
+	void Union(MangMotChieu& a);
+	MangMotChieu Concat(MangMotChieu& a);
+	bool Contains(int);
 };
+
+#endif
+

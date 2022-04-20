@@ -8,16 +8,21 @@
 
 int main()
 {
-	int n = 0;
-	MangMotChieu A;
-	cout << "Nhap so luong phan tu trong mang: ";
-	cin >> n;
-	A.set(n);
-	A.Nhap();
-	A.Xuat();
-	A.Demsolanxuathien();
-	A.Kiemtratangdan();
-	A.Phanlenhonhat();
-	A.Sntlonnhat();
-	return 0;
+	MangMotChieu A(5);
+	cout << "Nhap gia tri tung phan tu:" << endl;
+	cin >> A;
+	MangMotChieu B(3);
+	cout << "Nhap gia tri tung phan tu:" << endl;
+	cin >> B;
+	A = B;
+	cout << A;
+
+	cout << A;
+	A.Add(100);
+	cout<<"Vi tri cua phan tu can tim la: "<< A.IndexOf(4);
+
+	A.Concat(B);
+	cout << endl;
+	cout << A;
+	
 }
